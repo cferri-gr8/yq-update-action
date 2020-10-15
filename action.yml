@@ -1,0 +1,26 @@
+name: "yq qrite action"
+author: "Chris Ferri"
+description: "Update YAML with yq"
+inputs:
+  file:
+    description: "YAML file to update"
+    required: true
+  path:
+    description: "YAML path to update"
+    required: true
+  value:
+    description: "Value to set"
+    required: true
+outputs:
+  yq-update:
+    description: "The output if the command fails"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.file }}
+    - ${{ inputs.path }}
+    - ${{ inputs.value }}
+branding:
+  icon: "check-circle"
+  color: "green"
