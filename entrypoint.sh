@@ -2,6 +2,8 @@
 
 cd $GITHUB_WORKSPACE
 
+echo "yq w i $1 '$2' $3"
+
 YQ_CMD="$(yq w i $1 '$2' $3)"
 
 if [ $? -ne 0 ]; then
